@@ -1,1 +1,59 @@
+.palms{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
+    overflow:hidden;
+}
 
+.palm{
+    position:absolute;
+    bottom:-40px;
+    width:520px;
+    opacity:.22;
+    transform-origin:bottom center;
+    filter:drop-shadow(0 0 25px rgba(0,0,0,.35));
+}
+
+.palm-left{
+    left:-140px;
+    animation:swayLeft 8s ease-in-out infinite;
+}
+
+.palm-right{
+    right:-140px;
+    transform:scaleX(-1);
+    animation:swayRight 9s ease-in-out infinite;
+}
+
+@keyframes swayLeft{
+
+    0%{
+        transform:rotate(-2deg);
+    }
+
+    50%{
+        transform:rotate(2deg);
+    }
+
+    100%{
+        transform:rotate(-2deg);
+    }
+
+}
+
+@keyframes swayRight{
+
+    0%{
+        transform:scaleX(-1) rotate(2deg);
+    }
+
+    50%{
+        transform:scaleX(-1) rotate(-2deg);
+    }
+
+    100%{
+        transform:scaleX(-1) rotate(2deg);
+    }
+
+}
