@@ -54,3 +54,8 @@ footer{
     z-index:2;
 
 }
+.right .diamond{
+
+    transform:scaleX(-1);
+
+}
