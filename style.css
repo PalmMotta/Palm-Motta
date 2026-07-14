@@ -25,3 +25,32 @@ footer{
 
 .palm-wrapper{
    
+.background-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    radial-gradient(
+        circle at center,
+        transparent 0%,
+        rgba(0,0,0,.35) 100%
+    );
+
+    pointer-events:none;
+
+    z-index:.5;
+
+}
+
+
+header,
+main,
+footer{
+
+    position:relative;
+
+    z-index:2;
+
+}
