@@ -57,3 +57,31 @@
     }
 
 }
+.palm-wrapper{
+    position:absolute;
+    bottom:0;
+}
+
+.left{
+    left:-140px;
+}
+
+.right{
+    right:-140px;
+}
+
+.palm{
+    width:520px;
+}
+
+.diamond{
+
+    position:absolute;
+
+    top:95px;      /* Move up/down */
+
+    left:245px;    /* Move left/right */
+
+    width:38px;
+
+}
