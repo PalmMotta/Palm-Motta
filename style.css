@@ -10,21 +10,11 @@
     z-index:0;
 }
 
-/* Keep website content above palms */
-
-header,
-main,
-footer{
-    position:relative;
-    z-index:1;
-}
 
 /* ===========================
-   PALM WRAPPERS
+   ATMOSPHERE OVERLAY
 =========================== */
 
-.palm-wrapper{
-   
 .background-overlay{
 
     position:fixed;
@@ -40,10 +30,14 @@ footer{
 
     pointer-events:none;
 
-    z-index:.5;
+    z-index:1;
 
 }
 
+
+/* ===========================
+   CONTENT LAYER
+=========================== */
 
 header,
 main,
@@ -54,8 +48,197 @@ footer{
     z-index:2;
 
 }
+
+
+/* ===========================
+   PALM WRAPPERS
+=========================== */
+
+.palm-wrapper{
+
+    position:absolute;
+
+    bottom:-20px;
+
+    transform-origin:bottom center;
+
+}
+
+
+.left{
+
+    left:-140px;
+
+    animation:swayLeft 8s ease-in-out infinite;
+
+}
+
+
+.right{
+
+    right:-140px;
+
+    animation:swayRight 9s ease-in-out infinite;
+
+}
+
+
+/* ===========================
+   PALM IMAGES
+=========================== */
+
+.palm{
+
+    display:block;
+
+    width:clamp(240px, 32vw, 520px);
+
+    height:auto;
+
+    opacity:.20;
+
+    filter:
+    drop-shadow(0 0 25px rgba(0,0,0,.35));
+
+}
+
+
+.right .palm{
+
+    transform:scaleX(-1);
+
+}
+
+
+/* ===========================
+   DIAMOND
+=========================== */
+
+.diamond{
+
+    position:absolute;
+
+    width:36px;
+
+    top:92px;
+
+    left:242px;
+
+    animation:diamondGlow 5s ease-in-out infinite;
+
+}
+
+
 .right .diamond{
 
     transform:scaleX(-1);
+
+}
+
+
+/* ===========================
+   PALM MOVEMENT
+=========================== */
+
+@keyframes swayLeft{
+
+    0%{
+        transform:rotate(-2deg);
+    }
+
+    50%{
+        transform:rotate(2deg);
+    }
+
+    100%{
+        transform:rotate(-2deg);
+    }
+
+}
+
+
+@keyframes swayRight{
+
+    0%{
+        transform:rotate(2deg);
+    }
+
+    50%{
+        transform:rotate(-2deg);
+    }
+
+    100%{
+        transform:rotate(2deg);
+    }
+
+}
+
+
+/* ===========================
+   DIAMOND LIGHT
+=========================== */
+
+@keyframes diamondGlow{
+
+    0%,
+    100%{
+
+        opacity:.85;
+
+        filter:
+        drop-shadow(0 0 4px rgba(255,255,255,.25));
+
+    }
+
+    50%{
+
+        opacity:1;
+
+        filter:
+        drop-shadow(0 0 14px rgba(255,255,255,.65));
+
+    }
+
+}
+
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media (max-width:768px){
+
+    .palm{
+
+        width:240px;
+
+        opacity:.14;
+
+    }
+
+
+    .left{
+
+        left:-80px;
+
+    }
+
+
+    .right{
+
+        right:-80px;
+
+    }
+
+
+    .diamond{
+
+        width:18px;
+
+        top:42px;
+
+        left:108px;
+
+    }
 
 }
