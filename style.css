@@ -1,87 +1,27 @@
+/* ===========================
+   PALM BACKGROUND
+=========================== */
+
 .palms{
     position:fixed;
     inset:0;
     pointer-events:none;
-    z-index:-1;
     overflow:hidden;
+    z-index:0;
 }
 
-.palm{
-    position:absolute;
-    bottom:-40px;
-    width:520px;
-    opacity:.22;
-    transform-origin:bottom center;
-    filter:drop-shadow(0 0 25px rgba(0,0,0,.35));
+/* Keep website content above palms */
+
+header,
+main,
+footer{
+    position:relative;
+    z-index:1;
 }
 
-.palm-left{
-    left:-140px;
-    animation:swayLeft 8s ease-in-out infinite;
-}
+/* ===========================
+   PALM WRAPPERS
+=========================== */
 
-.palm-right{
-    right:-140px;
-    transform:scaleX(-1);
-    animation:swayRight 9s ease-in-out infinite;
-}
-
-@keyframes swayLeft{
-
-    0%{
-        transform:rotate(-2deg);
-    }
-
-    50%{
-        transform:rotate(2deg);
-    }
-
-    100%{
-        transform:rotate(-2deg);
-    }
-
-}
-
-@keyframes swayRight{
-
-    0%{
-        transform:scaleX(-1) rotate(2deg);
-    }
-
-    50%{
-        transform:scaleX(-1) rotate(-2deg);
-    }
-
-    100%{
-        transform:scaleX(-1) rotate(2deg);
-    }
-
-}
 .palm-wrapper{
-    position:absolute;
-    bottom:0;
-}
-
-.left{
-    left:-140px;
-}
-
-.right{
-    right:-140px;
-}
-
-.palm{
-    width:520px;
-}
-
-.diamond{
-
-    position:absolute;
-
-    top:95px;      /* Move up/down */
-
-    left:245px;    /* Move left/right */
-
-    width:38px;
-
-}
+   
