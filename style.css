@@ -1,25 +1,11 @@
 /* ===========================
-   PALM BACKGROUND
-=========================== */
-
-.palms{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    overflow:hidden;
-    z-index:0;
-}
-
-
-/* ===========================
    ATMOSPHERE OVERLAY
 =========================== */
 
-.background-overlay{
+.background-overlay {
 
-    position:fixed;
-
-    inset:0;
+    position: fixed;
+    inset: 0;
 
     background:
     radial-gradient(
@@ -28,9 +14,9 @@
         rgba(0,0,0,.35) 100%
     );
 
-    pointer-events:none;
+    pointer-events: none;
 
-    z-index:1;
+    z-index: 1;
 
 }
 
@@ -41,204 +27,37 @@
 
 header,
 main,
-footer{
+footer {
 
-    position:relative;
+    position: relative;
 
-    z-index:2;
-
-}
-
-
-/* ===========================
-   PALM WRAPPERS
-=========================== */
-
-.palm-wrapper{
-
-    position:absolute;
-
-    bottom:-20px;
-
-    transform-origin:bottom center;
-
-}
-
-
-.left{
-
-    left:-140px;
-
-    animation:swayLeft 8s ease-in-out infinite;
-
-}
-
-
-.right{
-
-    right:-140px;
-
-    animation:swayRight 9s ease-in-out infinite;
+    z-index: 2;
 
 }
 
 
 /* ===========================
-   PALM IMAGES
+   HERO
 =========================== */
 
-.palm{
+.hero {
 
-    display:block;
+    min-height: 100vh;
 
-    width:clamp(240px, 32vw, 520px);
+    background-image: url("palm-background.jpg");
 
-    height:auto;
+    background-size: cover;
 
-    opacity:.20;
+    background-position: center;
 
-    filter:
-    drop-shadow(0 0 25px rgba(0,0,0,.35));
+    background-repeat: no-repeat;
 
-}
+    display: flex;
 
+    align-items: center;
 
-.right .palm{
+    justify-content: center;
 
-    transform:scaleX(-1);
-
-}
-
-
-/* ===========================
-   DIAMOND
-=========================== */
-
-.diamond{
-
-    position:absolute;
-
-    width:36px;
-
-    top:92px;
-
-    left:242px;
-
-    animation:diamondGlow 5s ease-in-out infinite;
-
-}
-
-
-.right .diamond{
-
-    transform:scaleX(-1);
-
-}
-
-
-/* ===========================
-   PALM MOVEMENT
-=========================== */
-
-@keyframes swayLeft{
-
-    0%{
-        transform:rotate(-2deg);
-    }
-
-    50%{
-        transform:rotate(2deg);
-    }
-
-    100%{
-        transform:rotate(-2deg);
-    }
-
-}
-
-
-@keyframes swayRight{
-
-    0%{
-        transform:rotate(2deg);
-    }
-
-    50%{
-        transform:rotate(-2deg);
-    }
-
-    100%{
-        transform:rotate(2deg);
-    }
-
-}
-
-
-/* ===========================
-   DIAMOND LIGHT
-=========================== */
-
-@keyframes diamondGlow{
-
-    0%,
-    100%{
-
-        opacity:.85;
-
-        filter:
-        drop-shadow(0 0 4px rgba(255,255,255,.25));
-
-    }
-
-    50%{
-
-        opacity:1;
-
-        filter:
-        drop-shadow(0 0 14px rgba(255,255,255,.65));
-
-    }
-
-}
-
-
-/* ===========================
-   MOBILE
-=========================== */
-
-@media (max-width:768px){
-
-    .palm{
-
-        width:240px;
-
-        opacity:.14;
-
-    }
-
-
-    .left{
-
-        left:-80px;
-
-    }
-
-
-    .right{
-
-        right:-80px;
-
-    }
-
-
-    .diamond{
-
-        width:18px;
-
-        top:42px;
-
-        left:108px;
-
-    }
+    text-align: center;
 
 }
