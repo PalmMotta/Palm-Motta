@@ -700,3 +700,87 @@ section {
 .hero-text p {
     font-weight: 300;
 }
+.palm {
+    filter:
+    drop-shadow(0 0 30px rgba(0,0,0,.5));
+
+    opacity:.45;
+}
+
+
+.diamond {
+
+    animation: floatDiamond 6s ease-in-out infinite;
+
+}
+
+
+@keyframes floatDiamond {
+
+0%,100% {
+    transform:translateY(0);
+}
+
+50% {
+    transform:translateY(-15px);
+}
+
+}
+#about {
+
+    background:
+    rgba(255,255,255,.03);
+
+}
+
+
+#about p {
+
+    font-size:1.15rem;
+
+    max-width:900px;
+
+    letter-spacing:.3px;
+
+}
+@media(max-width:768px){
+
+header {
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+
+nav {
+
+    justify-content:center;
+
+}
+
+
+nav a {
+
+    letter-spacing:1px;
+
+}
+
+
+.hero-buttons {
+
+    flex-direction:column;
+
+    width:100%;
+
+}
+
+
+.button {
+
+    width:100%;
+
+}
+
+}
