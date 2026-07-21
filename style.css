@@ -1,17 +1,47 @@
 /* ===========================
+   RESET
+=========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family: "Inter", sans-serif;
+
+    background: #050505;
+
+    color: white;
+
+    overflow-x: hidden;
+
+}
+
+
+/* ===========================
    ATMOSPHERE OVERLAY
 =========================== */
 
 .background-overlay {
 
     position: fixed;
+
     inset: 0;
 
     background:
     radial-gradient(
         circle at center,
-        transparent 0%,
-        rgba(0,0,0,.35) 100%
+        transparent 20%,
+        rgba(0,0,0,.55) 100%
     );
 
     pointer-events: none;
@@ -21,15 +51,76 @@
 }
 
 
+
+/* ===========================
+   PALM ELEMENTS
+=========================== */
+
+
+.palms {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+}
+
+
+.palm-wrapper {
+
+    position: absolute;
+
+}
+
+
+.palm {
+
+    opacity: .65;
+
+}
+
+
+.diamond {
+
+    position: absolute;
+
+    width: 70px;
+
+    opacity: .8;
+
+}
+
+
+
+.palm-wrapper.left {
+
+    left: -80px;
+
+    bottom: 0;
+
+}
+
+
+.palm-wrapper.right {
+
+    right: -80px;
+
+    bottom: 0;
+
+}
+
+
+
 /* ===========================
    CONTENT LAYER
 =========================== */
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+
+header,
 main,
 footer {
 
@@ -40,28 +131,538 @@ footer {
 }
 
 
+
+/* ===========================
+   HEADER
+=========================== */
+
+
+header {
+
+    position: fixed;
+
+    top:0;
+
+    width:100%;
+
+    padding: 25px 8%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    backdrop-filter: blur(10px);
+
+    background:rgba(0,0,0,.25);
+
+}
+
+
+
+.logo {
+
+    color:white;
+
+    text-decoration:none;
+
+    display:flex;
+
+    flex-direction:column;
+
+    letter-spacing:3px;
+
+}
+
+
+.logo span {
+
+    font-family:"Space Grotesk", sans-serif;
+
+    font-weight:700;
+
+    font-size:1.2rem;
+
+}
+
+
+.logo small {
+
+    font-size:.65rem;
+
+    opacity:.6;
+
+}
+
+
+
+nav {
+
+    display:flex;
+
+    gap:35px;
+
+}
+
+
+
+nav a {
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:.85rem;
+
+    letter-spacing:2px;
+
+    transition:.3s;
+
+}
+
+
+nav a:hover {
+
+    opacity:.5;
+
+}
+
+
+
 /* ===========================
    HERO
 =========================== */
 
+
 .hero {
 
-    min-height: 100vh;
+    min-height:100vh;
 
-    background-image: url("palm-background.jpg .PNG");
+    background-image:url("palm-background.jpg");
 
-    background-size: cover;
+    background-size:cover;
 
-    background-position: center;
+    background-position:center;
 
-    background-repeat: no-repeat;
+    display:flex;
 
-    display: flex;
+    flex-direction:column;
 
-    align-items: center;
+    justify-content:center;
 
-    justify-content: center;
+    align-items:center;
 
-    text-align: center;
+    text-align:center;
+
+    padding:40px;
+
+}
+
+
+
+.hero::before {
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,.25),
+    rgba(0,0,0,.65)
+    );
+
+}
+
+
+.hero > * {
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+
+.eyebrow {
+
+    text-transform:uppercase;
+
+    letter-spacing:5px;
+
+    font-size:.75rem;
+
+    opacity:.8;
+
+}
+
+
+
+.hero-subtitle {
+
+    margin-top:20px;
+
+    font-size:1rem;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+}
+
+
+
+h1 {
+
+    font-family:"Space Grotesk", sans-serif;
+
+    font-size:clamp(3rem,8vw,6rem);
+
+    letter-spacing:8px;
+
+    margin:25px 0;
+
+}
+
+
+
+.hero-text {
+
+    max-width:600px;
+
+    line-height:1.8;
+
+    font-size:1.1rem;
+
+}
+
+
+
+.hero-text p {
+
+    margin-bottom:15px;
+
+}
+
+
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+
+.hero-buttons {
+
+    margin-top:40px;
+
+    display:flex;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+}
+
+
+
+.button {
+
+    padding:16px 35px;
+
+    border-radius:40px;
+
+    background:white;
+
+    color:black;
+
+    text-decoration:none;
+
+    letter-spacing:2px;
+
+    font-size:.8rem;
+
+    transition:.3s;
+
+}
+
+
+
+.button:hover {
+
+    background:#d7bd7a;
+
+    transform:translateY(-4px);
+
+}
+
+
+
+.button.secondary {
+
+    background:transparent;
+
+    border:1px solid white;
+
+    color:white;
+
+}
+
+
+
+/* ===========================
+   SECTIONS
+=========================== */
+
+
+section {
+
+    padding:120px 10%;
+
+}
+
+
+
+section h3 {
+
+    font-family:"Space Grotesk";
+
+    text-align:center;
+
+    font-size:2rem;
+
+    letter-spacing:3px;
+
+    margin-bottom:40px;
+
+}
+
+
+
+section p {
+
+    max-width:850px;
+
+    margin:auto;
+
+    text-align:center;
+
+    line-height:2;
+
+    font-size:1.05rem;
+
+}
+
+
+
+/* ===========================
+   VALUES
+=========================== */
+
+
+.values {
+
+    background:rgba(255,255,255,.04);
+
+}
+
+
+
+.value-grid {
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+    margin-top:50px;
+
+}
+
+
+
+.value-card {
+
+    border:1px solid rgba(255,255,255,.2);
+
+    padding:40px;
+
+    text-align:center;
+
+}
+
+
+
+.value-card h4 {
+
+    margin-bottom:20px;
+
+    letter-spacing:2px;
+
+}
+
+
+
+/* ===========================
+   COLLECTION
+=========================== */
+
+
+.gallery-grid {
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+    margin-top:50px;
+
+}
+
+
+
+.card {
+
+    height:250px;
+
+    border:1px solid rgba(255,255,255,.25);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:.4s;
+
+}
+
+
+
+.card:hover {
+
+    transform:translateY(-10px);
+
+    border-color:white;
+
+}
+
+
+
+.card h4 {
+
+    letter-spacing:3px;
+
+}
+
+
+
+/* ===========================
+   FOOTER
+=========================== */
+
+
+footer {
+
+    text-align:center;
+
+    padding:70px 20px;
+
+    background:#000;
+
+    letter-spacing:2px;
+
+    line-height:2;
+
+}
+
+
+
+/* ===========================
+   MOBILE
+=========================== */
+
+
+@media(max-width:768px){
+
+
+header {
+
+    padding:20px;
+
+}
+
+
+nav {
+
+    gap:15px;
+
+}
+
+
+nav a {
+
+    font-size:.7rem;
+
+}
+
+
+
+.hero {
+
+    padding:25px;
+
+}
+
+
+
+h1 {
+
+    letter-spacing:4px;
+
+}
+
+
+
+.hero-text {
+
+    font-size:.95rem;
+
+}
+
+
+
+.value-grid,
+.gallery-grid {
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+section {
+
+    padding:80px 25px;
+
+}
+
+
+
+.palm {
+
+    opacity:.35;
+
+}
+
 
 }
