@@ -1,99 +1,155 @@
-body {
-    background: red !important;
+/* =========================================================
+   PALM MOTTA V2
+   Rare by Nature. Rooted in Paradise.
+========================================================= */
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+
+    --background: #090909;
+
+    --surface: #121212;
+
+    --text: #F5F3EE;
+
+    --muted: #B8B0A3;
+
+    --gold: #C8A66A;
+
+    --green: #54684E;
+
+    --border: rgba(255,255,255,.12);
+
+    --soft-border: rgba(255,255,255,.06);
+
 }
-/* ===========================
+
+
+
+/* =========================================================
    RESET
-=========================== */
+========================================================= */
+
 
 * {
+
     margin: 0;
+
     padding: 0;
+
     box-sizing: border-box;
+
 }
+
 
 
 html {
+
     scroll-behavior: smooth;
+
 }
+
 
 
 body {
 
+    background: var(--background);
+
+    color: var(--text);
+
     font-family: "Inter", sans-serif;
 
-    background: #050505;
-
-    color: white;
+    line-height: 1.7;
 
     overflow-x: hidden;
 
 }
 
 
-/* ===========================
-   ATMOSPHERE OVERLAY
-=========================== */
 
-.background-overlay {
+img {
 
-    position: fixed;
+    max-width:100%;
 
-    inset: 0;
-
-    background:
-    radial-gradient(
-        circle at center,
-        transparent 20%,
-        rgba(0,0,0,.55) 100%
-    );
-
-    pointer-events: none;
-
-    z-index: 1;
+    display:block;
 
 }
 
 
 
-/* ===========================
-   PALM ELEMENTS
-=========================== */
+a {
+
+    color:inherit;
+
+    text-decoration:none;
+
+}
+
+
+
+/* =========================================================
+   ATMOSPHERE
+========================================================= */
+
+
+.background-overlay {
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:1;
+
+    pointer-events:none;
+
+
+    background:
+
+    radial-gradient(
+
+        circle at center,
+
+        transparent 20%,
+
+        rgba(0,0,0,.75) 100%
+
+    );
+
+}
+
+
+
+
+/* =========================================================
+   PALM ARTWORK
+========================================================= */
 
 
 .palms {
 
-    position: fixed;
+    position:fixed;
 
-    inset: 0;
+    inset:0;
 
-    pointer-events: none;
+    z-index:0;
 
-    z-index: 0;
+    pointer-events:none;
+
+    overflow:hidden;
 
 }
+
 
 
 .palm-wrapper {
 
-    position: absolute;
+    position:absolute;
 
-}
-
-
-.palm {
-
-    opacity: .65;
-
-}
-
-
-.diamond {
-
-    position: absolute;
-
-    width: 70px;
-
-    opacity: .8;
+    bottom:-80px;
 
 }
 
@@ -101,187 +157,46 @@ body {
 
 .palm-wrapper.left {
 
-    left: -80px;
-
-    bottom: 0;
+    left:-180px;
 
 }
+
 
 
 .palm-wrapper.right {
 
-    right: -80px;
-
-    bottom: 0;
+    right:-180px;
 
 }
 
 
 
-/* ===========================
-   CONTENT LAYER
-=========================== */
+.palm {
 
+    width:620px;
 
-header,
-main,
-footer {
+    opacity:.45;
 
-    position: relative;
+    filter:
 
-    z-index: 2;
+    drop-shadow(
 
-}
+        0 20px 40px rgba(0,0,0,.7)
 
-
-
-/* ===========================
-   HEADER
-=========================== */
-
-
-header {
-
-    position: fixed;
-
-    top:0;
-
-    width:100%;
-
-    padding: 25px 8%;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    backdrop-filter: blur(10px);
-
-    background:rgba(0,0,0,.25);
-
-}
-
-
-
-.logo {
-
-    color:white;
-
-    text-decoration:none;
-
-    display:flex;
-
-    flex-direction:column;
-
-    letter-spacing:3px;
-
-}
-
-
-.logo span {
-
-    font-family:"Space Grotesk", sans-serif;
-
-    font-weight:700;
-
-    font-size:1.2rem;
-
-}
-
-
-.logo small {
-
-    font-size:.65rem;
-
-    opacity:.6;
-
-}
-
-
-
-nav {
-
-    display:flex;
-
-    gap:35px;
-
-}
-
-
-
-nav a {
-
-    color:white;
-
-    text-decoration:none;
-
-    font-size:.85rem;
-
-    letter-spacing:2px;
-
-    transition:.3s;
-
-}
-
-
-nav a:hover {
-
-    opacity:.5;
-
-}
-
-
-
-/* ===========================
-   HERO
-=========================== */
-
-
-.hero {
-
-    min-height:100vh;
-
-    background-image:url("palm-background.jpg");
-
-    background-size:cover;
-
-    background-position:center;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-    padding:40px;
-
-}
-
-
-
-.hero::before {
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-    linear-gradient(
-    rgba(0,0,0,.25),
-    rgba(0,0,0,.65)
     );
 
 }
 
 
-.hero > * {
+
+/* =========================================================
+   CONTENT LAYER
+========================================================= */
+
+
+header,
+main,
+footer {
 
     position:relative;
 
@@ -291,104 +206,74 @@ nav a:hover {
 
 
 
-.eyebrow {
-
-    text-transform:uppercase;
-
-    letter-spacing:5px;
-
-    font-size:.75rem;
-
-    opacity:.8;
-
-}
 
 
-
-.hero-subtitle {
-
-    margin-top:20px;
-
-    font-size:1rem;
-
-    letter-spacing:4px;
-
-    text-transform:uppercase;
-
-}
+/* =========================================================
+   HEADER
+========================================================= */
 
 
+header {
 
-h1 {
+    position:fixed;
 
-    font-family:"Space Grotesk", sans-serif;
+    top:0;
 
-    font-size:clamp(3rem,8vw,6rem);
+    left:0;
 
-    letter-spacing:8px;
-
-    margin:25px 0;
-
-}
+    width:100%;
 
 
+    padding:
 
-.hero-text {
+    35px 8%;
 
-    max-width:600px;
-
-    line-height:1.8;
-
-    font-size:1.1rem;
-
-}
-
-
-
-.hero-text p {
-
-    margin-bottom:15px;
-
-}
-
-
-
-/* ===========================
-   BUTTONS
-=========================== */
-
-
-.hero-buttons {
-
-    margin-top:40px;
 
     display:flex;
 
-    gap:20px;
+    justify-content:space-between;
 
-    flex-wrap:wrap;
+    align-items:center;
 
-    justify-content:center;
 
 }
 
 
 
-.button {
+.logo {
 
-    padding:16px 35px;
+    font-family:"Space Grotesk", sans-serif;
 
-    border-radius:40px;
+    font-weight:700;
 
-    background:white;
+    letter-spacing:5px;
 
-    color:black;
+    font-size:1.1rem;
 
-    text-decoration:none;
 
-    letter-spacing:2px;
+}
 
-    font-size:.8rem;
+
+
+nav {
+
+    display:flex;
+
+    gap:45px;
+
+}
+
+
+
+nav a {
+
+    font-size:.75rem;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    color:var(--muted);
 
     transition:.3s;
 
@@ -396,146 +281,24 @@ h1 {
 
 
 
-.button:hover {
+nav a:hover {
 
-    background:#d7bd7a;
-
-    transform:translateY(-4px);
+    color:var(--text);
 
 }
 
 
 
-.button.secondary {
 
-    background:transparent;
 
-    border:1px solid white;
+/* =========================================================
+   HERO
+========================================================= */
 
-    color:white;
 
-}
+.hero {
 
-
-
-/* ===========================
-   SECTIONS
-=========================== */
-
-
-section {
-
-    padding:120px 10%;
-
-}
-
-
-
-section h3 {
-
-    font-family:"Space Grotesk";
-
-    text-align:center;
-
-    font-size:2rem;
-
-    letter-spacing:3px;
-
-    margin-bottom:40px;
-
-}
-
-
-
-section p {
-
-    max-width:850px;
-
-    margin:auto;
-
-    text-align:center;
-
-    line-height:2;
-
-    font-size:1.05rem;
-
-}
-
-
-
-/* ===========================
-   VALUES
-=========================== */
-
-
-.values {
-
-    background:rgba(255,255,255,.04);
-
-}
-
-
-
-.value-grid {
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:30px;
-
-    margin-top:50px;
-
-}
-
-
-
-.value-card {
-
-    border:1px solid rgba(255,255,255,.2);
-
-    padding:40px;
-
-    text-align:center;
-
-}
-
-
-
-.value-card h4 {
-
-    margin-bottom:20px;
-
-    letter-spacing:2px;
-
-}
-
-
-
-/* ===========================
-   COLLECTION
-=========================== */
-
-
-.gallery-grid {
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:25px;
-
-    margin-top:50px;
-
-}
-
-
-
-.card {
-
-    height:250px;
-
-    border:1px solid rgba(255,255,255,.25);
+    min-height:100vh;
 
     display:flex;
 
@@ -545,254 +308,160 @@ section p {
 
     align-items:center;
 
-    transition:.4s;
-
-}
-
-
-
-.card:hover {
-
-    transform:translateY(-10px);
-
-    border-color:white;
-
-}
-
-
-
-.card h4 {
-
-    letter-spacing:3px;
-
-}
-
-
-
-/* ===========================
-   FOOTER
-=========================== */
-
-
-footer {
-
     text-align:center;
 
-    padding:70px 20px;
 
-    background:#000;
+    padding:
 
-    letter-spacing:2px;
+    120px 25px 80px;
 
-    line-height:2;
+
+    background:
+
+    linear-gradient(
+
+        rgba(0,0,0,.35),
+
+        rgba(0,0,0,.85)
+
+    ),
+
+    url("images/palm-background.jpg");
+
+
+    background-size:cover;
+
+    background-position:center;
+
 
 }
 
 
 
-/* ===========================
-   MOBILE
-=========================== */
 
-
-@media(max-width:768px){
-
-
-header {
-
-    padding:20px;
-
-}
-
-
-nav {
-
-    gap:15px;
-
-}
-
-
-nav a {
+.system-id {
 
     font-size:.7rem;
 
-}
+    letter-spacing:5px;
 
+    color:var(--muted);
 
+    text-transform:uppercase;
 
-.hero {
-
-    padding:25px;
-
-}
-
-
-
-h1 {
-
-    letter-spacing:4px;
+    margin-bottom:35px;
 
 }
 
-
-
-.hero-text {
-
-    font-size:.95rem;
-
-}
-
-
-
-.value-grid,
-.gallery-grid {
-
-    grid-template-columns:1fr;
-
-}
-
-
-
-section {
-
-    padding:80px 25px;
-
-}
-
-
-
-.palm {
-
-    opacity:.35;
-
-}
-
-
-}
-/* Palm Motta Hero Refinement */
-
-.hero {
-    position: relative;
-    overflow: hidden;
-}
 
 
 .hero h1 {
-    font-size: clamp(3rem, 9vw, 6rem);
-    letter-spacing: 14px;
-    text-transform: uppercase;
-}
+
+    font-family:"Space Grotesk", sans-serif;
+
+    font-size:
+
+    clamp(3rem, 8vw, 6rem);
 
 
-.hero-subtitle {
-    font-size: .8rem;
-    letter-spacing: 7px;
-    margin-bottom: 15px;
-}
+    letter-spacing:
+
+    18px;
 
 
-.hero-text {
-    max-width: 550px;
-    margin-top: 20px;
-}
+    font-weight:700;
 
-
-.hero-text p {
-    font-weight: 300;
-}
-.palm {
-    filter:
-    drop-shadow(0 0 30px rgba(0,0,0,.5));
-
-    opacity:.45;
-}
-
-
-.diamond {
-
-    animation: floatDiamond 6s ease-in-out infinite;
+    margin-left:18px;
 
 }
 
 
-@keyframes floatDiamond {
 
-0%,100% {
-    transform:translateY(0);
-}
+.tagline {
 
-50% {
-    transform:translateY(-15px);
-}
-
-}
-#about {
-
-    background:
-    rgba(255,255,255,.03);
-
-}
+    margin-top:40px;
 
 
-#about p {
+    font-family:"Space Grotesk", sans-serif;
 
-    font-size:1.15rem;
 
-    max-width:900px;
+    font-size:
 
-    letter-spacing:.3px;
+    clamp(1.1rem,3vw,1.6rem);
 
-}
-@media(max-width:768px){
 
-header {
+    letter-spacing:5px;
 
-    flex-direction:column;
 
-    gap:20px;
+    line-height:1.8;
 
 }
 
 
-nav {
 
-    justify-content:center;
+.intro {
 
-}
+    max-width:600px;
 
-
-nav a {
-
-    letter-spacing:1px;
-
-}
+    margin-top:35px;
 
 
-.hero-buttons {
+    color:var(--muted);
 
-    flex-direction:column;
 
-    width:100%;
+    font-size:1.05rem;
 
 }
+
 
 
 .button {
 
-    width:100%;
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+
+    margin-top:50px;
+
+
+    padding:
+
+    16px 45px;
+
+
+    border:
+
+    1px solid var(--border);
+
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    font-size:.7rem;
+
+
+    background:
+
+    rgba(255,255,255,.03);
+
+
+    transition:.3s;
 
 }
 
-}
-:root {
 
---sand:#d8c29a;
---gold:#c9a45c;
---black:#050505;
 
-}
 .button:hover {
 
-background:var(--gold);
+
+    border-color:var(--gold);
+
+    color:var(--gold);
+
 
 }
+
