@@ -669,3 +669,34 @@ section {
 
 
 }
+/* Palm Motta Hero Refinement */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+
+.hero h1 {
+    font-size: clamp(3rem, 9vw, 6rem);
+    letter-spacing: 14px;
+    text-transform: uppercase;
+}
+
+
+.hero-subtitle {
+    font-size: .8rem;
+    letter-spacing: 7px;
+    margin-bottom: 15px;
+}
+
+
+.hero-text {
+    max-width: 550px;
+    margin-top: 20px;
+}
+
+
+.hero-text p {
+    font-weight: 300;
+}
