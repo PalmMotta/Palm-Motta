@@ -784,3 +784,15 @@ nav a {
 }
 
 }
+:root {
+
+--sand:#d8c29a;
+--gold:#c9a45c;
+--black:#050505;
+
+}
+.button:hover {
+
+background:var(--gold);
+
+}
