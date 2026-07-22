@@ -1,5 +1,5 @@
 /* =========================================================
-   PALM MOTTA V3
+   PALM MOTTA V4
    Rare by Nature. Rooted in Paradise.
 ========================================================= */
 
@@ -11,7 +11,6 @@
 :root {
 
     --background: #090909;
-    --surface: #121212;
     --text: #F5F3EE;
     --muted: #B8B0A3;
     --gold: #C8A66A;
@@ -45,9 +44,13 @@ html {
 body {
 
     background:var(--background);
+
     color:var(--text);
+
     font-family:"Inter", sans-serif;
+
     line-height:1.7;
+
     overflow-x:hidden;
 
 }
@@ -56,6 +59,7 @@ body {
 img {
 
     display:block;
+
     max-width:100%;
 
 }
@@ -64,6 +68,7 @@ img {
 a {
 
     color:inherit;
+
     text-decoration:none;
 
 }
@@ -79,6 +84,7 @@ header {
     position:absolute;
 
     top:0;
+
     left:0;
 
     width:100%;
@@ -105,7 +111,7 @@ header {
 
     letter-spacing:5px;
 
-    font-size:1.1rem;
+    font-size:1rem;
 
 }
 
@@ -131,9 +137,8 @@ nav a {
 
     color:var(--muted);
 
-    transition:.3s;
-
 }
+
 
 
 nav a:hover {
@@ -144,10 +149,8 @@ nav a:hover {
 
 
 
-
-
 /* =========================================================
-   HERO
+   HERO IMAGE
 ========================================================= */
 
 
@@ -159,6 +162,8 @@ nav a:hover {
 
     width:100%;
 
+    overflow:hidden;
+
     display:flex;
 
     justify-content:center;
@@ -166,8 +171,6 @@ nav a:hover {
     align-items:center;
 
     text-align:center;
-
-    overflow:hidden;
 
 }
 
@@ -185,27 +188,7 @@ nav a:hover {
 
     object-fit:cover;
 
-}
-
-
-
-.hero::after {
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-
-    linear-gradient(
-
-        rgba(0,0,0,.20),
-
-        rgba(0,0,0,.55)
-
-    );
+    object-position:center;
 
 }
 
@@ -223,17 +206,33 @@ nav a:hover {
 
 
 
+/* Very light readability layer */
+
+.hero-overlay::before {
+
+    content:"";
+
+    position:absolute;
+
+    inset:-50px;
+
+    background:rgba(0,0,0,.12);
+
+    z-index:-1;
+
+}
+
+
+
 .hero h1 {
 
     font-family:"Space Grotesk", sans-serif;
 
-    font-size:
-
-    clamp(3rem,8vw,6rem);
-
-    letter-spacing:18px;
+    font-size:clamp(3rem,8vw,5.5rem);
 
     font-weight:500;
+
+    letter-spacing:14px;
 
 }
 
@@ -245,9 +244,7 @@ nav a:hover {
 
     font-family:"Space Grotesk", sans-serif;
 
-    font-size:
-
-    clamp(1.1rem,3vw,1.6rem);
+    font-size:clamp(1rem,3vw,1.5rem);
 
     letter-spacing:5px;
 
@@ -257,54 +254,16 @@ nav a:hover {
 
 
 
-.button {
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    margin-top:45px;
-
-    padding:16px 45px;
-
-    border:1px solid rgba(255,255,255,.7);
-
-    letter-spacing:3px;
-
-    text-transform:uppercase;
-
-    font-size:.7rem;
-
-    transition:.3s;
-
-}
-
-
-
-.button:hover {
-
-    background:white;
-
-    color:black;
-
-}
-
-
-
 
 
 /* =========================================================
-   GENERAL SECTIONS
+   MAIN SECTIONS
 ========================================================= */
 
 
 main {
 
     position:relative;
-
-    z-index:2;
 
 }
 
@@ -338,9 +297,7 @@ section h2 {
 
     font-family:"Space Grotesk",sans-serif;
 
-    font-size:
-
-    clamp(2rem,5vw,3.5rem);
+    font-size:clamp(2rem,5vw,3.5rem);
 
     letter-spacing:5px;
 
@@ -375,7 +332,7 @@ section h2 {
 
     color:var(--muted);
 
-    font-size:1.15rem;
+    font-size:1.1rem;
 
     line-height:2.2;
 
@@ -392,15 +349,15 @@ section h2 {
 
 .principles {
 
+    max-width:1200px;
+
+    margin:auto;
+
     display:grid;
 
     grid-template-columns:repeat(3,1fr);
 
     gap:40px;
-
-    max-width:1200px;
-
-    margin:auto;
 
 }
 
@@ -420,11 +377,11 @@ section h2 {
 
     font-family:"Space Grotesk",sans-serif;
 
-    font-size:1.8rem;
+    font-size:1.7rem;
 
     letter-spacing:2px;
 
-    margin-bottom:20px;
+    margin-bottom:15px;
 
 }
 
@@ -471,17 +428,17 @@ section h2 {
 
     min-height:300px;
 
+    padding:40px;
+
     border:1px solid var(--border);
 
-    padding:40px;
+    background:rgba(255,255,255,.02);
 
     display:flex;
 
     flex-direction:column;
 
     justify-content:space-between;
-
-    background:rgba(255,255,255,.02);
 
 }
 
@@ -501,9 +458,9 @@ section h2 {
 
     color:var(--gold);
 
-    text-transform:uppercase;
-
     letter-spacing:4px;
+
+    text-transform:uppercase;
 
 }
 
@@ -532,11 +489,11 @@ section h2 {
 
 #transmission {
 
-    text-align:center;
-
     max-width:900px;
 
     margin:auto;
+
+    text-align:center;
 
 }
 
@@ -575,7 +532,7 @@ footer {
 
 footer p:first-child {
 
-    color:white;
+    color:var(--text);
 
     font-family:"Space Grotesk",sans-serif;
 
@@ -592,7 +549,7 @@ footer p:first-child {
 ========================================================= */
 
 
-@media(max-width:900px){
+@media(max-width:900px) {
 
 
 header {
@@ -605,7 +562,7 @@ header {
 
 nav {
 
-    gap:18px;
+    gap:20px;
 
 }
 
@@ -621,7 +578,7 @@ nav a {
 
 .hero h1 {
 
-    letter-spacing:8px;
+    letter-spacing:7px;
 
 }
 
@@ -654,7 +611,7 @@ section {
 
 
 
-@media(max-width:600px){
+@media(max-width:600px) {
 
 
 header {
@@ -680,7 +637,6 @@ header {
     letter-spacing:3px;
 
 }
-
 
 
 }
