@@ -1,12 +1,12 @@
 /* =========================================================
-   PALM MOTTA V4
+   PALM MOTTA V5
    Rare by Nature. Rooted in Paradise.
 ========================================================= */
 
 
-/* =========================================================
+/* =========================
    VARIABLES
-========================================================= */
+========================= */
 
 :root {
 
@@ -14,6 +14,7 @@
     --text: #F5F3EE;
     --muted: #B8B0A3;
     --gold: #C8A66A;
+
     --border: rgba(255,255,255,.12);
     --soft-border: rgba(255,255,255,.06);
 
@@ -21,9 +22,9 @@
 
 
 
-/* =========================================================
+/* =========================
    RESET
-========================================================= */
+========================= */
 
 * {
 
@@ -44,7 +45,6 @@ html {
 body {
 
     background:var(--background);
-
     color:var(--text);
 
     font-family:"Inter", sans-serif;
@@ -58,9 +58,8 @@ body {
 
 img {
 
+    width:100%;
     display:block;
-
-    max-width:100%;
 
 }
 
@@ -68,23 +67,23 @@ img {
 a {
 
     color:inherit;
-
     text-decoration:none;
 
 }
 
 
 
-/* =========================================================
+
+
+/* =========================
    HEADER
-========================================================= */
+========================= */
 
 header {
 
-    position:absolute;
+    position:fixed;
 
     top:0;
-
     left:0;
 
     width:100%;
@@ -97,7 +96,20 @@ header {
 
     align-items:center;
 
-    z-index:10;
+    z-index:100;
+
+    transition:.4s ease;
+
+}
+
+
+header.scrolled {
+
+    background:rgba(9,9,9,.85);
+
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid var(--soft-border);
 
 }
 
@@ -105,13 +117,11 @@ header {
 
 .logo {
 
-    font-family:"Space Grotesk", sans-serif;
+    font-family:"Space Grotesk",sans-serif;
 
     font-weight:700;
 
     letter-spacing:5px;
-
-    font-size:1rem;
 
 }
 
@@ -126,7 +136,6 @@ nav {
 }
 
 
-
 nav a {
 
     font-size:.75rem;
@@ -137,8 +146,9 @@ nav a {
 
     color:var(--muted);
 
-}
+    transition:.3s;
 
+}
 
 
 nav a:hover {
@@ -149,20 +159,17 @@ nav a:hover {
 
 
 
-/* =========================================================
-   HERO IMAGE
-========================================================= */
 
+
+/* =========================
+   HERO
+========================= */
 
 .hero {
 
-    position:relative;
-
     height:100vh;
 
-    width:100%;
-
-    overflow:hidden;
+    position:relative;
 
     display:flex;
 
@@ -171,6 +178,8 @@ nav a:hover {
     align-items:center;
 
     text-align:center;
+
+    overflow:hidden;
 
 }
 
@@ -182,13 +191,29 @@ nav a:hover {
 
     inset:0;
 
-    width:100%;
-
     height:100%;
 
     object-fit:cover;
 
-    object-position:center;
+    animation:heroZoom 15s infinite alternate;
+
+}
+
+
+
+@keyframes heroZoom {
+
+    from {
+
+        transform:scale(1);
+
+    }
+
+    to {
+
+        transform:scale(1.08);
+
+    }
 
 }
 
@@ -196,29 +221,68 @@ nav a:hover {
 
 .hero-overlay {
 
-    position:relative;
+    position:absolute;
 
-    z-index:2;
+    inset:0;
 
-    color:white;
+    background:
+
+    linear-gradient(
+    rgba(0,0,0,.25),
+    rgba(0,0,0,.75)
+    );
 
 }
 
 
 
-/* Very light readability layer */
+.hero-content {
 
-.hero-overlay::before {
+    position:relative;
 
-    content:"";
+    z-index:2;
 
-    position:absolute;
+    max-width:900px;
 
-    inset:-50px;
+    padding:20px;
 
-    background:rgba(0,0,0,.12);
+    animation:fadeUp 1.5s ease;
 
-    z-index:-1;
+}
+
+
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to {
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+.hero-label {
+
+    color:var(--gold);
+
+    letter-spacing:5px;
+
+    font-size:.75rem;
+
+    margin-bottom:30px;
 
 }
 
@@ -226,13 +290,13 @@ nav a:hover {
 
 .hero h1 {
 
-    font-family:"Space Grotesk", sans-serif;
+    font-family:"Space Grotesk",sans-serif;
 
-    font-size:clamp(3rem,8vw,5.5rem);
+    font-size:clamp(3rem,8vw,6rem);
+
+    letter-spacing:15px;
 
     font-weight:500;
-
-    letter-spacing:14px;
 
 }
 
@@ -242,13 +306,11 @@ nav a:hover {
 
     margin-top:35px;
 
-    font-family:"Space Grotesk", sans-serif;
+    font-family:"Space Grotesk",sans-serif;
 
     font-size:clamp(1rem,3vw,1.5rem);
 
-    letter-spacing:5px;
-
-    line-height:1.8;
+    letter-spacing:6px;
 
 }
 
@@ -256,22 +318,51 @@ nav a:hover {
 
 
 
-/* =========================================================
-   MAIN SECTIONS
-========================================================= */
+/* =========================
+   BUTTON
+========================= */
 
+.button {
 
-main {
+    display:inline-block;
 
-    position:relative;
+    margin-top:45px;
+
+    padding:16px 40px;
+
+    border:1px solid var(--gold);
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    font-size:.75rem;
+
+    transition:.4s ease;
 
 }
 
+
+.button:hover {
+
+    background:var(--gold);
+
+    color:#090909;
+
+}
+
+
+
+
+
+/* =========================
+   SECTIONS
+========================= */
 
 
 section {
 
-    padding:120px 10%;
+    padding:130px 10%;
 
 }
 
@@ -279,13 +370,11 @@ section {
 
 .section-label {
 
+    color:var(--gold);
+
     font-size:.7rem;
 
     letter-spacing:5px;
-
-    color:var(--gold);
-
-    text-transform:uppercase;
 
     margin-bottom:25px;
 
@@ -311,9 +400,9 @@ section h2 {
 
 
 
-/* =========================================================
+/* =========================
    PHILOSOPHY
-========================================================= */
+========================= */
 
 
 #philosophy {
@@ -328,83 +417,26 @@ section h2 {
 
 #philosophy p:not(.section-label) {
 
-    max-width:850px;
-
     color:var(--muted);
+
+    max-width:850px;
 
     font-size:1.1rem;
 
-    line-height:2.2;
-
 }
 
 
 
 
 
-/* =========================================================
-   PRINCIPLES
-========================================================= */
+/* =========================
+   COLLECTION
+========================= */
 
 
-.principles {
+#collection {
 
-    max-width:1200px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:40px;
-
-}
-
-
-
-.principles > div {
-
-    border-top:1px solid var(--soft-border);
-
-    padding-top:35px;
-
-}
-
-
-
-.principles h3 {
-
-    font-family:"Space Grotesk",sans-serif;
-
-    font-size:1.7rem;
-
-    letter-spacing:2px;
-
-    margin-bottom:15px;
-
-}
-
-
-
-.principles p:not(.section-label) {
-
-    color:var(--muted);
-
-}
-
-
-
-
-
-/* =========================================================
-   ARCHIVE
-========================================================= */
-
-
-#archive {
-
-    max-width:1200px;
+    max-width:1300px;
 
     margin:auto;
 
@@ -412,39 +444,61 @@ section h2 {
 
 
 
-.archive-grid {
+.collection-grid {
 
     display:grid;
 
     grid-template-columns:repeat(3,1fr);
 
-    gap:30px;
+    gap:35px;
 
 }
 
 
 
-.archive-card {
-
-    min-height:300px;
-
-    padding:40px;
+.product-card {
 
     border:1px solid var(--border);
 
     background:rgba(255,255,255,.02);
 
-    display:flex;
+    transition:.4s ease;
 
-    flex-direction:column;
-
-    justify-content:space-between;
+    overflow:hidden;
 
 }
 
 
 
-.archive-card p {
+.product-card:hover {
+
+    transform:translateY(-10px);
+
+    border-color:var(--gold);
+
+}
+
+
+
+.product-card img {
+
+    aspect-ratio:4/5;
+
+    object-fit:cover;
+
+}
+
+
+
+.product-card div {
+
+    padding:35px;
+
+}
+
+
+
+.product-card h3 {
 
     font-family:"Space Grotesk",sans-serif;
 
@@ -454,27 +508,23 @@ section h2 {
 
 
 
-.archive-card h3 {
-
-    color:var(--gold);
-
-    letter-spacing:4px;
-
-    text-transform:uppercase;
-
-}
-
-
-
-.archive-card span {
+.product-card p {
 
     color:var(--muted);
 
-    font-size:.8rem;
+    margin:10px 0 20px;
 
-    letter-spacing:2px;
+}
 
-    text-transform:uppercase;
+
+
+.product-card a {
+
+    color:var(--gold);
+
+    letter-spacing:3px;
+
+    font-size:.75rem;
 
 }
 
@@ -482,24 +532,23 @@ section h2 {
 
 
 
-/* =========================================================
-   TRANSMISSION
-========================================================= */
+/* =========================
+   STORY
+========================= */
 
 
-#transmission {
+#story {
+
+    text-align:center;
 
     max-width:900px;
 
     margin:auto;
 
-    text-align:center;
-
 }
 
 
-
-#transmission p:not(.section-label) {
+#story p:not(.section-label) {
 
     color:var(--muted);
 
@@ -509,9 +558,9 @@ section h2 {
 
 
 
-/* =========================================================
+/* =========================
    FOOTER
-========================================================= */
+========================= */
 
 
 footer {
@@ -532,7 +581,7 @@ footer {
 
 footer p:first-child {
 
-    color:var(--text);
+    color:white;
 
     font-family:"Space Grotesk",sans-serif;
 
@@ -544,12 +593,12 @@ footer p:first-child {
 
 
 
-/* =========================================================
+/* =========================
    MOBILE
-========================================================= */
+========================= */
 
 
-@media(max-width:900px) {
+@media(max-width:900px){
 
 
 header {
@@ -562,7 +611,7 @@ header {
 
 nav {
 
-    gap:20px;
+    gap:15px;
 
 }
 
@@ -570,7 +619,7 @@ nav {
 
 nav a {
 
-    font-size:.65rem;
+    font-size:.6rem;
 
 }
 
@@ -584,15 +633,7 @@ nav a {
 
 
 
-.principles {
-
-    grid-template-columns:1fr;
-
-}
-
-
-
-.archive-grid {
+.collection-grid {
 
     grid-template-columns:1fr;
 
@@ -607,11 +648,12 @@ section {
 }
 
 
+
 }
 
 
 
-@media(max-width:600px) {
+@media(max-width:600px){
 
 
 header {
@@ -624,19 +666,12 @@ header {
 
 
 
-.hero-image {
-
-    object-position:center;
-
-}
-
-
-
 .tagline {
 
     letter-spacing:3px;
 
 }
+
 
 
 }
